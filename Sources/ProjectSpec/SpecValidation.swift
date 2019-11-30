@@ -57,6 +57,9 @@ extension Project {
             if !(basePath + Path(package).normalize()).exists {
                 errors.append(.invalidLocalPackage(package))
             }
+            if !(basePath + Path(package).normalize() + "Package.swift").exists {
+                errors.append(.invalidLocalPackage(package))
+            }
         }
 
         for (config, configFile) in configFiles {
@@ -173,9 +176,10 @@ extension Project {
                         }
                     }
                 case .package:
-                    if packages[dependency.reference] == nil {
-                        errors.append(.invalidSwiftPackage(name: dependency.reference, target: target.name))
-                    }
+                    break
+//                    if packages[dependency.reference] == nil {
+//                        errors.append(.invalidSwiftPackage(name: dependency.reference, target: target.name))
+//                    }
                 default: break
                 }
             }

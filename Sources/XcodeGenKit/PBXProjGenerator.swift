@@ -798,9 +798,9 @@ public class PBXProjGenerator {
                 }
             // Embedding handled by iterating over `carthageDependencies` below
             case .package(let product):
-                guard let packageReference = packageReferences[dependency.reference] else {
-                    return
-                }
+//                guard let packageReference = packageReferences[dependency.reference] else {
+//                    return
+//                }
 
                 let productName = product ?? dependency.reference
                 let packageDependency = addObject(
