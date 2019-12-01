@@ -802,6 +802,8 @@ public class PBXProjGenerator {
 //                    return
 //                }
 
+                let packageReference = packageReferences[dependency.reference]
+
                 let productName = product ?? dependency.reference
                 let packageDependency = addObject(
                     XCSwiftPackageProductDependency(productName: productName, package: packageReference)
